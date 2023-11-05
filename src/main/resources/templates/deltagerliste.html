@@ -6,7 +6,9 @@
 	<title>Deltagerliste</title>
 </head>
 <body>
-    <p>Innlogget som: 90123456 / Arne Arnesen</p>
+    <p>Innlogget som: 
+		<span th:text="${deltager.mobil}"></span> / <span th:text="${deltager.fornavn + deltager.etternavn}"></span>
+	</p>
 	<h2>Deltagerliste</h2>
 	<table>
 		<tr>

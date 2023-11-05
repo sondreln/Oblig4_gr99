@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
+import jakarta.servlet.http.HttpSession;
 import no.hvl.dat108.Oblig4_gr99.handlers.Deltager;
 
 @Controller
@@ -29,7 +32,13 @@ public class PaameldingsController {
     }
 
     @RequestMapping("deltagerliste")
-    public String deltagerliste(){
+    public String deltagerliste(HttpSession session, Model model){
+        Deltager registrertDeltager = (Deltager) session.getAttribute("registrertDeltager");
+
+        if(registrertDeltager != null){
+            model.addAttribute("deltager", registrertDeltager);
+        }
+
         return "deltagerliste";
     }
 
@@ -47,7 +56,8 @@ public class PaameldingsController {
             @RequestParam String passordRepetert,
             @RequestParam String kjonn,
             @ModelAttribute Deltager deltager,
-            Model model) {
+            Model model,
+            HttpSession session) {
 
         if (fornavn.isEmpty() || etternavn.isEmpty() || mobil.isEmpty() ||
                 passord.isEmpty() || !passord.equals(passordRepetert)) {
@@ -55,7 +65,9 @@ public class PaameldingsController {
             return "paamelding_med_melding"; 
         }
 
+        
         model.addAttribute("deltager", deltager);
+        session.setAttribute("registrertDeltager", deltager);
 
         return "paameldt"; 
     }
