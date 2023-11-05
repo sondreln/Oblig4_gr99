@@ -8,11 +8,10 @@
 <body>
 	<h2>Påmeldingsbekreftelse</h2>
 	<p>Påmeldingen er mottatt for</p>
-	<p>
-		&nbsp;&nbsp;&nbsp;Arne<br />
-		&nbsp;&nbsp;&nbsp;Arnesen<br />
-		&nbsp;&nbsp;&nbsp;90123456<br /> &nbsp;&nbsp;&nbsp;mann
-	</p>
+	 <p th:text="'Fornavn: ' + ${deltager.getFornavn()}"/> 
+	 <p th:text="'Etternavn: ' + ${deltager.getEtternavn()}"/> 
+	 <p th:text="'Kjønn: ' + ${deltager.getKjonn()}"/> 
+
 	<a href="deltagerliste">Gå til deltagerlisten</a>
 </body>
 </html>
