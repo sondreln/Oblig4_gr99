@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
-
 import jakarta.servlet.http.HttpSession;
-import no.hvl.dat108.Oblig4_gr99.handlers.Deltager;
+import no.hvl.dat108.Oblig4_gr99.entities.Deltager;
 
 @Controller
 public class PaameldingsController {
@@ -61,11 +59,10 @@ public class PaameldingsController {
 
         if (fornavn.isEmpty() || etternavn.isEmpty() || mobil.isEmpty() ||
                 passord.isEmpty() || !passord.equals(passordRepetert)) {
-            model.addAttribute("errorMessage", "Validation failed. Please check the fields.");
+            model.addAttribute("errorMessage", "Vennligs fyll ut skjemaet");
             return "paamelding_med_melding"; 
         }
 
-        
         model.addAttribute("deltager", deltager);
         session.setAttribute("registrertDeltager", deltager);
 

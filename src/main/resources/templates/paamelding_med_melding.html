@@ -8,7 +8,7 @@
 
 <body>
 	<h2>Påmelding</h2>
-	<p style="color:red;">Påmeldingsdetaljer er ugyldige</p>
+	<p style="color:red;"><span th:text="${errorMessage}"> </span></p>
 	<form method="post" action="/submit">
 		<fieldset>
 		
