@@ -28,6 +28,15 @@ public class Deltager {
 
 
     public Deltager() {
+    
+    }
+
+    public Deltager(String mobil, String fornavn, String etternavn, Passord passord, String kjonn){
+        this.mobil = mobil;
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
+        this.passord = passord;
+        this.kjonn = kjonn;
     }
 
     public String getFornavn() {

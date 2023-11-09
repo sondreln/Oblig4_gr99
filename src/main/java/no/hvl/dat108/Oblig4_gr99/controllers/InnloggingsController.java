@@ -34,7 +34,7 @@ public class InnloggingsController {
 
                 if (passordMatch) {
                     session.setAttribute("registrertDeltager", deltager);
-                    return "redirect:/deltagerliste"; // Redirect after successful login
+                    return "redirect:/deltagerliste"; 
                 } else {
                     model.addAttribute("errorMessage", "Feil passord.");
                     return "innlogging_med_melding";

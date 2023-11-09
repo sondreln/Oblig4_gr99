@@ -28,12 +28,7 @@ public class DeltagerService {
             String hash = passordService.hashMedSalt(passordKlartekst, salt);
     
             Passord passordObjekt = new Passord(hash, salt);
-            Deltager deltager = new Deltager();
-            deltager.setMobil(mobil);
-            deltager.setPassord(passordObjekt); 
-            deltager.setFornavn(fornavn);
-            deltager.setEtternavn(etternavn);
-            deltager.setKjonn(kjonn);
+            Deltager deltager = new Deltager(mobil, fornavn, etternavn, passordObjekt, kjonn);
     
             return deltagerRepository.save(deltager);
         } else {
