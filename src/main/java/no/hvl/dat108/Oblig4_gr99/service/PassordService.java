@@ -1,4 +1,4 @@
-package no.hvl.dat108.obl4.service;
+package no.hvl.dat108.Oblig4_gr99.service;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

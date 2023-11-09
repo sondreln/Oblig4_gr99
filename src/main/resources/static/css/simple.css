@@ -53,6 +53,11 @@
   box-sizing: border-box;
 }
 
+/* styling av deltagerliste registrert deltager */
+.highlight {
+  background-color: #aaffaa;
+}
+
 /* Reset default appearance */
 textarea,
 select,

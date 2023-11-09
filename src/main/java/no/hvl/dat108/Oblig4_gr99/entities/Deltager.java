@@ -1,25 +1,74 @@
 package no.hvl.dat108.Oblig4_gr99.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import no.hvl.dat108.Oblig4_gr99.handlers.Kjonn;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 @Entity
+@Table(name = "deltager")
 public class Deltager {
+
+    @Column(name = "mobil", nullable = false, length = 8)
+    @Id private String mobil;
+
+    @Embedded
+    private Passord passord;
     
     @Column(name = "fornavn")
-    public String fornavn;
+    private String fornavn;
 
     @Column(name = "etternavn")
-    public String etternavn;
+    private String etternavn;
 
     @Column(name = "kjonn")
-    public Kjonn kjonn;
+    private String kjonn;
 
-    @Column(name = "salt")
-    public String salt;
 
-    @Column(name = "hash")
-    public String hash;
+    public Deltager() {
+    }
+
+    public String getFornavn() {
+        return fornavn;
+    }
+
+    public String getEtternavn() {
+        return etternavn;
+    }
+
+    public String getMobil() {
+        return mobil;
+    }
+
+    public Passord getPassord(){
+        return passord;
+    }
+
+    public String getKjonn() {
+        return kjonn;
+    }
+
+    public void setFornavn(String fornavn) {
+        this.fornavn = fornavn;
+    }
+
+    public void setEtternavn(String etternavn) {
+        this.etternavn = etternavn;
+    }
+
+    public void setPassord(Passord passord){
+        this.passord = passord;
+    }
+
+    public void setMobil(String mobil) {
+        this.mobil = mobil;
+    }
+
+    public void setKjonn(String kjonn) {
+        this.kjonn = kjonn;
+    }
 
 }
+
