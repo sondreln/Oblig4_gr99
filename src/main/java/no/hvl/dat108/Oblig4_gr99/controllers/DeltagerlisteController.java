@@ -25,6 +25,11 @@ public class DeltagerlisteController {
             model.addAttribute("deltager", registrertDeltager); 
         }
 
+        if (session.getAttribute("deltager") == null){
+            model.addAttribute("errorMessage", "HAHA, lol!");
+            return "innlogging_med_melding";
+        }
+
         List<Deltager> alleDeltagere = deltagerService.hentAlleDeltagere(); 
         model.addAttribute("alleDeltagere", alleDeltagere); 
         model.addAttribute("deltager", registrertDeltager);

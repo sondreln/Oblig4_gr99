@@ -51,6 +51,12 @@ public class DeltagerService {
         return false;
     }
 
+    public Optional<Deltager>  findByMobil(String mobil){
+        Optional<Deltager> deltager = deltagerRepository.findById(mobil);
+
+        return (Optional<Deltager>) deltager;
+    }
+
     public List<Deltager> hentAlleDeltagere() {
         return deltagerRepository.findAllByOrderByFornavnAscEtternavnAsc();
     }
