@@ -29,12 +29,14 @@ public class DeltagerlisteController {
         List<Deltager> alleDeltagere = deltagerService.hentAlleDeltagere(); 
         model.addAttribute("alleDeltagere", alleDeltagere); 
         model.addAttribute("deltager", registrertDeltager);
+
         return "deltagerliste"; 
     }
 
     @PostMapping("/utlogging")
     public String utlogging(HttpSession session, Model model){
-        // session.invalidate();  TODO: slette session? lager krøll med innlogging no
+        session.removeAttribute("deltager");  // This clears the participant from the session
         return "redirect:/innlogging"; 
     }
+    
 }
