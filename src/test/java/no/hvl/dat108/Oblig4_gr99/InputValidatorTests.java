@@ -33,7 +33,7 @@ class InputValidatorTests {
 		assertFalse(InputValidator.validerMobilnummer("1234567"));
 	}
 	
-	//FORNAVN
+	// VALIDERLENGDE - FORNAVN OG ETTERNAVN //
 	@Test
 	void forLangtFornavn(){
 		assertFalse(InputValidator.validerFornavn("Karlerikjorgenfredrikpettersen"));
@@ -53,10 +53,5 @@ class InputValidatorTests {
 	void riktigLengdeEtternavnGirTrue(){
 		assertTrue(InputValidator.validerEtternavn("Karl"));
 	}
-	// VALIDERLENGDE - FORNAVN OG ETTERNAVN //
-	
-	// FORNAVN //
-	
-	// ETTERNAVN //
 	
 }
