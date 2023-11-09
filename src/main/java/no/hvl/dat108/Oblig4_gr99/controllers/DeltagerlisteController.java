@@ -21,28 +21,20 @@ public class DeltagerlisteController {
     public String deltagerliste(HttpSession session, Model model) {
         Deltager registrertDeltager = (Deltager) session.getAttribute("deltager");
 
-        if (registrertDeltager != null) {
-            model.addAttribute("deltager", registrertDeltager); 
-        }
-
-        if (session.getAttribute("deltager") == null){
-            model.addAttribute("errorMessage", "HAHA, lol!");
-            return "innlogging_med_melding";
+        if (registrertDeltager == null) {
+            model.addAttribute("errorMessage", "Du må være logget inn for å se deltagerlisten.");
+            return "innlogging_med_melding"; 
         }
 
         List<Deltager> alleDeltagere = deltagerService.hentAlleDeltagere(); 
         model.addAttribute("alleDeltagere", alleDeltagere); 
         model.addAttribute("deltager", registrertDeltager);
-
-
         return "deltagerliste"; 
     }
 
-    @PostMapping("innlogging")
+    @PostMapping("/utlogging")
     public String utlogging(HttpSession session, Model model){
-        session.removeAttribute("deltager");
-
-
-        return "innlogging_med_melding";
+        // session.invalidate();  TODO: slette session? lager krøll med innlogging no
+        return "redirect:/innlogging"; 
     }
 }
